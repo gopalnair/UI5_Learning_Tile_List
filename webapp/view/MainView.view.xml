@@ -1,9 +1,13 @@
-<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="gopalnairLearning_TileList.controller.MainView"
-	xmlns:html="http://www.w3.org/1999/xhtml">
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml"
+	controllerName="gopalnairLearning_TileList.controller.MainView">
 	<App>
 		<pages>
 			<Page title="{i18n>mainViewTitle}">
-				<content></content>
+				<content>
+					<TileContainer editable="false" allowAdd="false" id="tileContainer" tiles="{tileData>/TileCollection}">
+						<StandardTile title="{tileData>title}" info="{tileData>info}" icon="{tileData>icon}" activeIcon="{tileData>icon}" infoState="{tileData>infoState}" id="__tile0"/>
+					</TileContainer>
+				</content>
 			</Page>
 		</pages>
 	</App>

@@ -1,8 +1,8 @@
 /*eslint linebreak-style: ["error", "windows"]*/
 sap.ui.define([
-	
-	"sap/ui/core/mvc/Controller"
-], function(Controller) {
+	"sap/ui/core/mvc/Controller",
+	"sap/ui/model/json/JSONModel"
+], function(Controller, JSONModel) {
 	"use strict";
 
 	return Controller.extend("gopalnairLearning_TileList.controller.MainView", {
@@ -12,9 +12,12 @@ sap.ui.define([
 		 * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.
 		 * @memberOf gopalnairLearning_TileList.view.MainView
 		 */
-		//	onInit: function() {
-		//
-		//	},
+			onInit: function() {
+				var tileData = new JSONModel();
+				tileData.loadData("./model/TilesData.json");
+				this.getView().setModel(tileData,"tileData");
+				//console.log(tileData);
+			}
 
 		/**
 		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
